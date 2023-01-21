@@ -1,11 +1,23 @@
-import { Component } from 'react';
-// import PropTypes from 'prop-types';
-// import { Container } from './Profile.styled';
+import PropTypes from 'prop-types';
+import { Stats, StatsLi, Item, Btn } from './ContactList.styled';
 
-class ContactList extends Component {
-  render() {
-    return <div></div>;
-  }
-}
+const ContactList = ({ contacts, onDeleteContact }) => (
+  <Stats>
+    {contacts.map(({ id, name, number }) => (
+      <StatsLi key={id}>
+        <Item>{name}:</Item>
+        <Item>{number}</Item>
+        <Btn type="button" onClick={() => onDeleteContact(id)}>
+          Delete
+        </Btn>
+      </StatsLi>
+    ))}
+  </Stats>
+);
 
 export default ContactList;
+
+ContactList.propTypes = {
+  onDeleteContact: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
