@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { Stats, StatsLi, Item, Btn } from './ContactList.styled';
 
-const ContactList = ({ contacts, onDeleteContact }) => (
+const ContactList = ({ contactsList, onDeleteContact }) => (
   <Stats>
-    {contacts.map(({ id, name, number }) => (
+    {contactsList.map(({ id, name, number }) => (
       <StatsLi key={id}>
         <Item>{name}:</Item>
         <Item>{number}</Item>
