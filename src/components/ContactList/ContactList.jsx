@@ -19,9 +19,11 @@ export default ContactList;
 
 ContactList.propTypes = {
   onDeleteContact: PropTypes.func.isRequired,
-  contactsList: PropTypes.arrayOf(PropTypes.shape({
+  contactsList: PropTypes.arrayOf(
+    PropTypes.shape({
       id: PropTypes.string.isRequired,
-name:PropTypes.string.isRequired,
-number:PropTypes.number.isRequired,
-    }))
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
 };
